@@ -7,35 +7,51 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 25</h1>
-        <form>
-            <label for="valor1">Digite o dia de nascimento:</label><br>
-            <input type="number" id="valor1" name="valor1"><br>
-            <label for="valor2">Digite o mês de nascimento:</label><br>
-            <input type="number" id="valor2" name="valor2"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 25</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Digite o dia de nascimento</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="valor1" name="valor1" class="fcf-form-control" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Digite o mês de nascimento</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="valor2" name="valor2" class="fcf-form-control" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="resposta"></p>
-    </div>
+        </div>
+
+    </div>    
     <script>
         var lista =[];
-        function calculaValores() {
+        function executar() {
 
-            let dia = parseInt(document.getElementById("valor1").value);
-            let mes = parseInt(document.getElementById("valor2").value);
-            let signo;
+            var dia = parseInt(document.getElementById("valor1").value);
+            var mes = parseInt(document.getElementById("valor2").value);
+            var signo;
             
-            if (dia.length == 0) {
-                alert('Dia é obrigatório');
-                return;
-            }
-
-            if (mes.length == 0) {
-                alert('Mês é obrigatório');
-                return;
-            }
-
+            
             if((dia>=21&&mes==3)||(dia<=20&&mes==4))
                 signo = "Áries";
             if((dia>=24&&mes==9)||(dia<=23&&mes==10))

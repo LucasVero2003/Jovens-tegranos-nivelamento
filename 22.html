@@ -7,28 +7,42 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 22</h1>
-        <form>
-            <label for="valor1">Deseja a tabuada para qual valor?</label><br>
-            <input type="number" id="valor1" name="valor1"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
-        <br>
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 22</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Deseja a tabuada para qual valor?</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="valor1" name="valor1" class="fcf-form-control" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <div id="resposta"></div>
-    </div>
+        </div>
+
+    </div>    
     <script>
         var pares =[];
-        function calculaValores() {
+        function executar() {
 
-            let valor1 = document.getElementById("valor1").value;
-            
-            if (valor1.length == 0) {
-                alert('Valor é obrigatório');
-                return;
-            }
-
-            let txt = "";
+            var valor1 = document.getElementById("valor1").value;
+                        
+            var txt = "";
             for(var count=1; count<=10 ; count++) {
                 txt += valor1 + " x " + count+" = " + (Number(valor1)*count) + "<br />";
                 document.getElementById("resposta").innerHTML  = txt;

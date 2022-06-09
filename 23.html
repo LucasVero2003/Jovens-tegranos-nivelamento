@@ -7,23 +7,47 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 23</h1>
-        <form>
-            <label for="valor1">Digite o primeiro valor:</label><br>
-            <input type="number" id="valor1" name="valor1"><br>
-            <label for="valor2">Digite o segundo valor:</label><br>
-            <input type="number" id="valor2" name="valor2"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 23</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Digite o primeiro valor</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="valor1" name="valor1" class="fcf-form-control" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Digite o segundo valor</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="valor2" name="valor2" class="fcf-form-control" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="resposta"></p>
-    </div>
+        </div>
+    </div>    
     <script>
         var impares =[];
-        function calculaValores() {
+        function executar() {
 
-            let valor1 = document.getElementById("valor1").value;
-            let valor2 = document.getElementById("valor2").value;
+            var valor1 = document.getElementById("valor1").value;
+            var valor2 = document.getElementById("valor2").value;
             document.getElementById("resposta").innerHTML = "";
             
             if (valor1.length == 0) {
@@ -36,7 +60,7 @@
                 return;
             }
 
-            let x = Number(valor1);
+            var x = Number(valor1);
             while (x < Number(valor2)) {
                 if ((x%2 != 0)) {
                     impares.push(x);                    
@@ -44,7 +68,7 @@
                 x++;
             }
             
-            let soma = 0;
+            var soma = 0;
             for (var i = 0; i < impares.length; i++) { 
                 soma += impares[i]; 
             }
