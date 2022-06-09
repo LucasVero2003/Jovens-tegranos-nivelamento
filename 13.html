@@ -7,36 +7,51 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 13</h1>
-        <form>
-            <label for="minutos">Digite a quantidade de minutos:</label><br>
-            <input type="number" id="minutos" name="minutos"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 13</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Quantidade de minutos</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="minutos" name="minutos" class="fcf-form-control" required>                                        
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="resposta"></p>
+        </div>
+
     </div>
     <script>
 
-        function calculaValores() {
+        function executar() {
 
-            let minutos = document.getElementById("minutos").value;
-            let minutosPlano = 100;
-            let valorPlano = 50;
-            let valorMinuto = 2;
-            let resposta;
+            var minutos = document.getElementById("minutos").value;
+            var minutosPlano = 100;
+            var valorPlano = 50;
+            var valorMinuto = 2;
+            var resposta;
             
-
-            if (minutos.length == 0) {
-                alert('Campo obrigatório')
-                return;
-            }
 
             if (minutos <= minutosPlano) {
                 resposta = "Valor a pagar: " + valorPlano.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
             } else {
-                let minutosExcedentes = Number(minutos) - Number(minutosPlano)
-                let valorPagar = (minutosExcedentes * valorMinuto) + valorPlano;
+                var minutosExcedentes = Number(minutos) - Number(minutosPlano)
+                var valorPagar = (minutosExcedentes * valorMinuto) + valorPlano;
                 resposta = "Valor a pagar: " + valorPagar.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
             }
 

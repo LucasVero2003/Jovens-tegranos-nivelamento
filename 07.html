@@ -7,45 +7,55 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 07</h1>
-        <form>
-            <label for="distancia">Distância percorrida:</label><br>
-            <input type="number" id="distancia" name="distancia"><br>
-            <label for="combustivel">Combustível gasto:</label><br>
-            <input type="number" id="combustivel" name="combustivel" oninput="validate2(this)" step=".1"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 7</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label class="fcf-label">Distância percorrida</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="distancia" name="distancia" class="fcf-form-control" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label class="fcf-label">Combustível gasto</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="combustivel" name="combustivel" class="fcf-form-control" step=".1" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="resposta"></p>
+        </div>
+
     </div>
     <script>
 
-        var validate2 = function(e) {
-          var t = e.value;
-          e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-        }
-        
-        function calculaValores() {
+        function executar() {
 
-            let distancia = document.getElementById("distancia").value;
-            let combustivel = document.getElementById("combustivel").value;
-
-            if (distancia.length == 0) {
-                alert('Distância é obrigatória')
-                return;
-            }
-
-            if (combustivel.length == 0) {
-                alert('Combustível é obrigatório');
-                return;
-            }
+            var distancia = document.getElementById("distancia").value;
+            var combustivel = document.getElementById("combustivel").value;
 
             if (Number(combustivel) == 0) {
                 alert('Combustível não pode ser zero')
                 return;
             }            
             
-            let autonomia = Number(distancia) / Number(combustivel);
+            var autonomia = Number(distancia) / Number(combustivel);
             document.getElementById("resposta").innerHTML  =
             "Consumo médio: " + autonomia.toFixed(3);
         }

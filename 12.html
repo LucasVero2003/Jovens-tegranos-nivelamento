@@ -7,58 +7,73 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 12</h1>
-        <form>
-            <label for="coefA">Coeficiene A:</label><br>
-            <input type="number" id="coefA" name="coefA"><br>
-            <label for="coefB">Coeficiene B:</label><br>
-            <input type="number" id="coefB" name="coefB"><br>
-            <label for="coefC">Coeficiene C:</label><br>
-            <input type="number" id="coefC" name="coefC"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 12</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label class="fcf-label">Coeficiene A</label>
+                <div class="fcf-input-group">                    
+                    <input class="fcf-form-control" type="number" id="coefA" name="coefA" required step=".1">                                        
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label class="fcf-label">Coeficiene B</label>
+                <div class="fcf-input-group">                    
+                    <input class="fcf-form-control" type="number" id="coefB" name="coefB" required step=".1">                                        
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label class="fcf-label">Coeficiene C</label>
+                <div class="fcf-input-group">                    
+                    <input class="fcf-form-control" type="number" id="coefC" name="coefC" required step=".1">                                        
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="a"></p>
         <p id="b"></p>
         <p id="c"></p>
         <p id="resposta"></p>
-    </div>
+        </div>
+    </div>       
+
     <script>
 
-        function calculaValores() {
+        function executar() {
 
-            let coefA = document.getElementById("coefA").value;
-            let coefB = document.getElementById("coefB").value;
-            let coefC = document.getElementById("coefC").value;
-
-            if (coefA.length == 0) {
-                alert('Coeficiente A é obrigatório')
-                return;
-            }
-
-            if (coefB.length == 0) {
-                alert('Coeficiente B é obrigatório')
-                return;
-            }
-
-            if (coefC.length == 0) {
-                alert('Coeficiente C é obrigatório')
-                return;
-            }
+            var coefA = document.getElementById("coefA").value;
+            var coefB = document.getElementById("coefB").value;
+            var coefC = document.getElementById("coefC").value;
 
             if (Number(coefA) == 0) {
                 alert('Coeficiente A não pode ser zero')
                 return;
             }  
             
-            let resposta;
-            let delta = Math.pow(Number(coefB), 2) - 4 * Number(coefA) * Number(coefC);
+            var resposta;
+            var delta = Math.pow(Number(coefB), 2) - 4 * Number(coefA) * Number(coefC);
 
             if (delta < 0) {
                 resposta = "Esta equação não possui raízes reais";
             } else {
-                let x1 = (-Number(coefB) + Math.sqrt(delta)) / (2 * Number(coefA));
-                let x2 = (-Number(coefB) - Math.sqrt(delta)) / (2 * Number(coefA));
+                var x1 = (-Number(coefB) + Math.sqrt(delta)) / (2 * Number(coefA));
+                var x2 = (-Number(coefB) - Math.sqrt(delta)) / (2 * Number(coefA));
                 resposta = "x1 = " + x1.toFixed(4) + " e  x2 = " + x2.toFixed(4);
             }
 

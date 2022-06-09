@@ -7,26 +7,41 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 15</h1>
-        <form>
-            <label for="glicose">Digite a medida de glicose:</label><br>
-            <input type="number" id="glicose" name="glicose"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 15</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Medida de glicose</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="glicose" name="glicose" class="fcf-form-control" required step=".1">                                        
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="resposta"></p>
+        </div>
+
     </div>
     <script>
 
-        function calculaValores() {
+        function executar() {
 
-            let glicose = document.getElementById("glicose").value;
-            let resposta;
-
-            if (glicose.length == 0) {
-                alert('Campo obrigatório')
-                return;
-            }
+            var glicose = document.getElementById("glicose").value;
+            var resposta;
 
             if (Number(glicose) < 100) {
                 resposta = "Classificação: NORMAL";   

@@ -7,33 +7,43 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 05</h1>
-        <form>
-            <label for="raio">Raio do Círculo:</label><br>
-            <input type="number" id="raio" name="raio" oninput="validate1(this)" step=".1"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
-        <p id="area"></p>
-    </div>
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 5</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Raio do Círculo</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="raio" name="raio" class="fcf-form-control" required step=".1">                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
+        <p id="area"></p>        
+        </div>
+
+    </div>    
     <script>
 
-        var validate1 = function(e) {
-          var t = e.value;
-          e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 2)) : t;
-        }
-        
-        function calculaValores() {
+        function executar() {
 
         
-            let raio = document.getElementById("raio").value;
+            var raio = document.getElementById("raio").value;
 
-            if (raio.length == 0) {
-                alert('Raio é obrigatório')
-                return;
-            }
-
-            let area = Math.PI * Math.pow(raio,2);
+            var area = Math.PI * Math.pow(raio,2);
             
             document.getElementById("area").innerHTML  =
             "Area do Círculo: " + area.toFixed(3);

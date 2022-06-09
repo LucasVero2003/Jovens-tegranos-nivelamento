@@ -7,52 +7,62 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 08</h1>
-        <form>
-            <label for="lado_a">Digite a medida A:</label><br>
-            <input type="number" id="lado_a" name="lado_a" oninput="validate2(this)" step=".1"><br>
-            <label for="lado_b">Digite a medida B:</label><br>
-            <input type="number" id="lado_b" name="lado_b" oninput="validate2(this)" step=".1"><br>
-            <label for="lado_c">Digite a medida C:</label><br>
-            <input type="number" id="lado_c" name="lado_c" oninput="validate2(this)" step=".1"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 8</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label class="fcf-label">Digite a medida A</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="lado_a" name="lado_a" class="fcf-form-control" required step=".1">                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label class="fcf-label">Digite a medida B</label>
+                <div class="fcf-input-group">
+                    <input type="number" id="lado_b" name="lado_b" class="fcf-form-control" required step=".1">                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label class="fcf-label">Digite a medida C</label>
+                <div class="fcf-input-group">
+                    <input type="number" id="lado_c" name="lado_c" class="fcf-form-control" required step=".1">                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="quadrado"></p>
         <p id="triangulo"></p>
         <p id="trapezio"></p>
-    </div>
+        </div>
+
+    </div>    
     <script>
 
-        var validate2 = function(e) {
-          var t = e.value;
-          e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-        }
-        
-        function calculaValores() {
+        function executar() {
 
-            let ladoA = document.getElementById("lado_a").value;
-            let ladoB = document.getElementById("lado_b").value;
-            let ladoC = document.getElementById("lado_c").value;
+            var ladoA = document.getElementById("lado_a").value;
+            var ladoB = document.getElementById("lado_b").value;
+            var ladoC = document.getElementById("lado_c").value;
 
-            if (ladoA.length == 0 || Number(ladoA) == 0) {
-                alert('Lado A é obrigatório')
-                return;
-            }
-
-            if (ladoB.length == 0 || Number(ladoB) == 0) {
-                alert('Lado B é obrigatório')
-                return;
-            }
-
-            if (ladoC.length == 0 || Number(ladoC) == 0) {
-                alert('Lado C é obrigatório')
-                return;
-            }
-
-            let quadrado = Math.pow(Number(ladoA),2);
-            let triangulo = (Number(ladoA) * Number(ladoB))/2;
-            let trapezio = (Number(ladoA) + Number(ladoB)) * Number(ladoC)/2;
+            var quadrado = Math.pow(Number(ladoA),2);
+            var triangulo = (Number(ladoA) * Number(ladoB))/2;
+            var trapezio = (Number(ladoA) + Number(ladoB)) * Number(ladoC)/2;
 
             document.getElementById("quadrado").innerHTML  =
             "Área do quadrado: " + quadrado.toFixed(4);

@@ -7,32 +7,47 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 02</h1>
-        <form>
-            <label for="base">Base do Retângulo:</label><br>
-            <input type="number" id="base" name="base" oninput="validate1(this)" step=".1"><br>
-            <label for="altura">Altura do Retângulo:</label><br>
-            <input type="number" id="altura" name="altura" oninput="validate1(this)" step=".1"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 2</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Base</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="base" name="base" class="fcf-form-control" required step=".1">                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Altura</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="altura" name="altura" class="fcf-form-control" required step=".1">                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="area"></p>
         <p id="perimetro"></p>
         <p id="diagonal"></p>
-    </div>
+        </div>
+
+    </div>  
     <script>
 
-        var validate1 = function(e) {
-          var t = e.value;
-          e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 2)) : t;
-        }
-        
-        var validate2 = function(e) {
-          var t = e.value;
-          e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-        }
-        
-        function calculaValores() {
+        function executar() {
 
         
             let base = document.getElementById("base").value;

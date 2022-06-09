@@ -7,36 +7,51 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 09</h1>
-        <form>
-            <label for="segundos">Digite a duração em segundos:</label><br>
-            <input type="number" id="segundos" name="segundos"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 9</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label class="fcf-label">Digite a duração em segundos</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="segundos" name="segundos" class="fcf-form-control" required>                                        
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="resposta"></p>
-    </div>
+        </div>
+
+    </div>        
     <script>
 
-        function calculaValores() {
+        function executar() {
 
-            let segundos = document.getElementById("segundos").value;
-            let horaFormatada = convertHMS(segundos);
-
-            if (segundos.length == 0) {
-                alert('Campo obrigatório')
-                return;
-            }
-
+            var segundos = document.getElementById("segundos").value;
+            var horaFormatada = formatarHora(segundos);
+            
             document.getElementById("resposta").innerHTML  =
             "Hora formatada: " + horaFormatada;
         }        
 
-        function convertHMS(value) {
-            const sec = Number(value);
-            let hours   = Math.floor(sec / 3600);
-            let minutes = Math.floor((sec - (hours * 3600)) / 60);
-            let seconds = sec - (hours * 3600) - (minutes * 60);
+        function formatarHora(value) {
+            var sec = Number(value);
+            var hours   = Math.floor(sec / 3600);
+            var minutes = Math.floor((sec - (hours * 3600)) / 60);
+            var seconds = sec - (hours * 3600) - (minutes * 60);
             
             if (hours   < 10) {hours   = "0"+hours;}
             if (minutes < 10) {minutes = "0"+minutes;}
