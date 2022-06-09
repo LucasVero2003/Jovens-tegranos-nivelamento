@@ -7,30 +7,45 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 19</h1>
-        <form>
-            <label for="salario">Digite o salario da pessoa:</label><br>
-            <input type="number" id="salario" name="salario" oninput="validate2(this)" step=".01"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 19</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Salário</label>
+                <div class="fcf-input-group">                    
+                    <input type="number" id="salario" name="salario" class="fcf-form-control" required step=".01">                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
         <p id="novoSalario"></p>
         <p id="aumento"></p>
         <p id="porcentagem"></p>
-    </div>
+        </div>
+
+    </div>    
     <script>
 
-        var validate2 = function(e) {
-          var t = e.value;
-          e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-        }
+        function executar() {
 
-        function calculaValores() {
-
-            let salario = document.getElementById("salario").value;
-            let novoSalario;
-            let aumento;
-            let porcentagem;
+            var salario = document.getElementById("salario").value;
+            var novoSalario;
+            var aumento;
+            var porcentagem;
             
             if (salario.length == 0) {
                 alert('Salário é obrigatório')
