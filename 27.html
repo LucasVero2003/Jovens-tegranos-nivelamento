@@ -7,22 +7,42 @@
     <title>Exercicios Tegra</title>
 </head>
 <body>
-    <div class="container">        
-        <h1>Exercício 27</h1>
-        <form>
-            <label for="nome">Digite a palavra:</label><br>
-            <input type="text" id="nome" name="nome"><br><br>
-            <input type="button" onclick="calculaValores()" value="Calcular">
-        </form> 
-        <p id="resposta"></p>
-    </div>
+    <link href="estilo.css" rel="stylesheet">
+
+    <div class="fcf-body">
+
+        <div id="fcf-form">
+        <h3 class="fcf-h3">Exercício 27</h3>
+
+        <form id="fcf-form-id" class="fcf-form-class">
+            
+            <div class="fcf-form-group">
+                <label for="largura" class="fcf-label">Digite a palavra</label>
+                <div class="fcf-input-group">                    
+                    <input type="text" id="nome" name="nome" class="fcf-form-control" required>                    
+                </div>
+            </div>
+
+            <div class="fcf-form-group">
+                <input type="button" onclick="executar()" value="Ok">
+            </div>
+
+            <div class="fcf-credit" id="fcf-credit">
+            Simple HTML email form provided by <a href="https://www.majesticform.com" target="_blank">MajesticForm</a>
+            </div>
+
+        </form>
+        <p id="resposta"></p>        
+        </div>
+
+    </div>      
     <script>
 
-        function calculaValores() {
+        function executar() {
 
         
-            let nome = document.getElementById("nome").value;            
-            let resposta;
+            var nome = document.getElementById("nome").value;            
+            var resposta;
 
             if (nome.length == 0) {
                 alert('Nome é obrigatório')
